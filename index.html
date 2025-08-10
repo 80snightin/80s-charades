@@ -2,46 +2,64 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>80s Movie Charades</title>
 <style>
     body {
         background-color: black;
-        color: lime;
-        font-family: 'Courier New', monospace;
+        color: #ff00ff;
+        font-family: 'Courier New', Courier, monospace;
         text-align: center;
-        padding-top: 50px;
+        padding: 40px;
     }
     h1 {
-        color: magenta;
-        font-size: 3em;
-        text-shadow: 0 0 10px magenta, 0 0 20px magenta;
+        font-size: 2.5em;
     }
     button {
-        background-color: cyan;
+        background-color: #ff00ff;
         color: black;
         padding: 15px 30px;
-        font-size: 1.5em;
         border: none;
-        border-radius: 10px;
+        font-size: 1.2em;
         cursor: pointer;
-        box-shadow: 0 0 10px cyan, 0 0 20px cyan;
+        margin-top: 20px;
+        border-radius: 8px;
     }
     button:hover {
-        background-color: magenta;
-        box-shadow: 0 0 10px magenta, 0 0 20px magenta;
-        color: white;
+        background-color: #ff66ff;
     }
     #movie {
         font-size: 2em;
         margin-top: 30px;
-        text-shadow: 0 0 10px lime, 0 0 20px lime;
+        color: yellow;
     }
 </style>
 </head>
 <body>
-
-<h1>80s Movie Charades</h1>
-<button onclick="pickMovie()">Pick a Movie</button>
-<div id="movie"></div>
+    <h1>🎬 80s Movie Charades 🎬</h1>
+    <p>Press the button to get a random 80s movie for your charades game!</p>
+    <button onclick="pickMovie()">Pick a Movie</button>
+    <div id="movie"></div>
 
 <script>
+const movies = [
+    "Back to the Future",
+    "The Breakfast Club",
+    "Ghostbusters",
+    "Ferris Bueller's Day Off",
+    "Top Gun",
+    "Dirty Dancing",
+    "The Goonies",
+    "E.T. the Extra-Terrestrial",
+    "Blade Runner",
+    "Indiana Jones and the Raiders of the Lost Ark",
+    // Add your full list of 75 movies here...
+];
+
+function pickMovie() {
+    const randomIndex = Math.floor(Math.random() * movies.length);
+    document.getElementById("movie").textContent = movies[randomIndex];
+}
+</script>
+</body>
+</html>
