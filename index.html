@@ -42,23 +42,99 @@
     <div id="movie"></div>
 
 <script>
-const movies = [
-    "Back to the Future",
-    "The Breakfast Club",
-    "Ghostbusters",
-    "Ferris Bueller's Day Off",
-    "Top Gun",
-    "Dirty Dancing",
-    "The Goonies",
-    "E.T. the Extra-Terrestrial",
-    "Blade Runner",
-    "Indiana Jones and the Raiders of the Lost Ark",
-    // Add your full list of 75 movies here...
+// Full movie list
+let movies = [
+"Back to the Future",
+"The Breakfast Club",
+"Ghostbusters",
+"Top Gun",
+"Dirty Dancing",
+"E.T.",
+"Ferris Bueller's Day Off",
+"Gremlins",
+"The Goonies",
+"The Karate Kid",
+"Beetlejuice",
+"Labyrinth",
+"Indiana Jones and the Last Crusade",
+"Pretty in Pink",
+"Sixteen Candles",
+"Big",
+"Flashdance",
+"Footloose",
+"Rain Man",
+"Scarface",
+"Die Hard",
+"Batman (1989)",
+"The NeverEnding Story",
+"Stand By Me",
+"The Princess Bride",
+"Aliens",
+"Beverly Hills Cop",
+"National Lampoon’s Vacation",
+"Who Framed Roger Rabbit",
+"The Terminator",
+"Planes, Trains and Automobiles",
+"Mannequin",
+"The Lost Boys",
+"Clue",
+"Coming to America",
+"Field of Dreams",
+"The Blues Brothers",
+"Crocodile Dundee",
+"The Outsiders",
+"St. Elmo’s Fire",
+"RoboCop",
+"The Untouchables",
+"Poltergeist",
+"An American Tail",
+"Spaceballs",
+"Revenge of the Nerds",
+"Weird Science",
+"Short Circuit",
+"Willow",
+"WarGames",
+"Midnight Run",
+"The Money Pit",
+"Mr. Mom",
+"Tootsie",
+"Dead Poets Society",
+"Driving Miss Daisy",
+"The Color Purple",
+"The Abyss",
+"Glory",
+"Empire of the Sun",
+"Tron",
+"Red Dawn",
+"Escape from New York",
+"The Thing",
+"Rocky IV",
+"Overboard",
+"Airplane!",
+"The Secret of NIMH",
+"The Fox and the Hound",
+"The Black Cauldron",
+"The Little Mermaid",
+"Oliver & Company",
+"Honey, I Shrunk the Kids",
+"My Left Foot",
+"The Shining"
 ];
 
+// Base64 arcade sound
+const arcadeSound = new Audio("data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAIlYAAESsAAACABAAZGF0YQAAAAA="); 
+// The above is a placeholder tone — I can swap in a longer/louder retro effect if you want
+
 function pickMovie() {
+    if (movies.length === 0) {
+        document.getElementById("movie").textContent = "🎉 All movies have been used!";
+        return;
+    }
     const randomIndex = Math.floor(Math.random() * movies.length);
-    document.getElementById("movie").textContent = movies[randomIndex];
+    const selectedMovie = movies.splice(randomIndex, 1)[0];
+    document.getElementById("movie").textContent = selectedMovie;
+    arcadeSound.currentTime = 0;
+    arcadeSound.play();
 }
 </script>
 </body>
